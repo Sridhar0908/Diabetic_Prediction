@@ -148,18 +148,21 @@ http://127.0.0.1:5000
 
 # 📸 Screenshots
 
-Add screenshots inside:
+## Home Page
 
-```bash
-static/img/
-```
+![Home](static/img/home.png)
 
-Example screenshots:
+## Prediction Page
 
-* Home page
-* Prediction page
-* Login page
-* Prediction result
+![Prediction](static/img/predict.png)
+
+## Result Page
+
+![Result](static/img/result.png)
+
+## Login Page
+
+![Login](static/img/login.png)
 
 ---
 
