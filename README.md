@@ -154,12 +154,12 @@ http://127.0.0.1:5000
 
 ## Prediction Page
 
-![Prediction](static/img/predict/)
+![Prediction..CLICK](static/img/predict/)
 
 
 ## Login Page
 
-![Login](static/img/login/)
+![Login...CLICK](static/img/login/)
 
 ---
 
