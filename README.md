@@ -156,9 +156,6 @@ http://127.0.0.1:5000
 
 ![Prediction](static/img/predict.png)
 
-## Result Page
-
-![Result](static/img/result.png)
 
 ## Login Page
 
