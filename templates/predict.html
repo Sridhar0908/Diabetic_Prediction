@@ -1,0 +1,209 @@
+```html
+{% extends "base.html" %}
+{% block title %}Predict - MediCare{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-7">
+    <div class="card shadow-lg p-4">
+      
+      <div class="d-flex align-items-center mb-3">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" height="48" class="me-3" alt="logo">
+        <div>
+          <h4 class="mb-0">Diabetes Risk Predictor</h4>
+          <small class="text-muted">Fill the clinical values below and click Predict</small>
+        </div>
+      </div>
+
+      <form action="{{ url_for('predict') }}" method="post" id="predictForm">
+
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Pregnancies</label>
+            <input 
+              name="Pregnancies"
+              type="number"
+              class="form-control"
+              min="0"
+              required
+              value="{{ request.form.get('Pregnancies', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Glucose</label>
+            <input 
+              name="Glucose"
+              type="number"
+              class="form-control"
+              min="0"
+              required
+              value="{{ request.form.get('Glucose', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Blood Pressure</label>
+            <input 
+              name="BloodPressure"
+              type="number"
+              class="form-control"
+              required
+              value="{{ request.form.get('BloodPressure', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Skin Thickness</label>
+            <input 
+              name="SkinThickness"
+              type="number"
+              class="form-control"
+              required
+              value="{{ request.form.get('SkinThickness', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Insulin</label>
+            <input 
+              name="Insulin"
+              type="number"
+              class="form-control"
+              required
+              value="{{ request.form.get('Insulin', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">BMI</label>
+            <input 
+              name="BMI"
+              type="number"
+              step="0.01"
+              class="form-control"
+              required
+              value="{{ request.form.get('BMI', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Diabetes Pedigree</label>
+            <input 
+              name="DiabetesPedigreeFunction"
+              type="number"
+              step="0.01"
+              class="form-control"
+              required
+              value="{{ request.form.get('DiabetesPedigreeFunction', '') }}"
+            >
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Age</label>
+            <input 
+              name="Age"
+              type="number"
+              class="form-control"
+              required
+              value="{{ request.form.get('Age', '') }}"
+            >
+          </div>
+
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+          <button type="submit" class="btn btn-primary">
+            Predict
+          </button>
+
+          <button 
+            type="button"
+            class="btn btn-outline-secondary"
+            id="clearBtn"
+          >
+            Clear
+          </button>
+        </div>
+
+      </form>
+
+      {% if prediction %}
+      <div class="mt-4" id="resultBox">
+        <div class="alert {% if prediction == 'Diabetic' %}alert-danger{% else %}alert-success{% endif %} fw-bold shadow-sm">
+
+          <h5 class="mb-3">
+            Prediction Result: {{ prediction }}
+          </h5>
+
+          <hr>
+
+          <p><strong>Pregnancies:</strong> {{ request.form.get('Pregnancies') }}</p>
+          <p><strong>Glucose:</strong> {{ request.form.get('Glucose') }}</p>
+          <p><strong>Blood Pressure:</strong> {{ request.form.get('BloodPressure') }}</p>
+          <p><strong>Skin Thickness:</strong> {{ request.form.get('SkinThickness') }}</p>
+          <p><strong>Insulin:</strong> {{ request.form.get('Insulin') }}</p>
+          <p><strong>BMI:</strong> {{ request.form.get('BMI') }}</p>
+          <p><strong>Diabetes Pedigree:</strong> {{ request.form.get('DiabetesPedigreeFunction') }}</p>
+          <p><strong>Age:</strong> {{ request.form.get('Age') }}</p>
+
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="card shadow-lg p-4">
+
+      <h5>How it works</h5>
+
+      <p class="text-muted">
+        This demo uses a machine learning model trained on the Pima Indians Diabetes dataset to estimate the probability of diabetes.
+        Results are for educational purposes only.
+      </p>
+
+      <hr>
+
+      <h6>Tips for using</h6>
+
+      <ul class="small text-muted">
+        <li>Enter realistic clinical values (e.g., Glucose 70–200).</li>
+        <li>If you don't have a value, enter 0 (the model will handle imputation).</li>
+        <li>Only a clinician can interpret these predictions for medical decisions.</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    const clearBtn = document.getElementById('clearBtn');
+
+    clearBtn.addEventListener('click', function(){
+
+        // Clear all form inputs
+        document.getElementById('predictForm').reset();
+
+        // Remove prediction result box
+        const resultBox = document.getElementById('resultBox');
+
+        if(resultBox){
+            resultBox.remove();
+        }
+
+    });
+
+});
+
+</script>
+{% endblock %}
+```

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Home - MediCare{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-12">
+    <!-- Yellow Box Start -->
+    <div class="p-5 rounded-4 shadow-lg" style="background-color: #3fc8e6ff;"> 
+
+      <div class="row align-items-center">
+
+        <div class="col-lg-6">
+          <div class="p-4 bg-white rounded-4 h-100">
+            <h1 class="display-6 mb-3">Welcome to MediCare</h1>
+            <p class="lead text-muted">
+              A hospital web portal with a built-in diabetic risk prediction tool.
+              Fast, simple and secure — designed for clinicians and students.
+            </p>
+
+            <div class="mt-4">
+              <a href="{{ url_for('predict') }}" class="btn btn-primary btn-lg me-2">Try Prediction</a>
+              <a href="#" class="btn btn-outline-secondary btn-lg">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card shadow-lg border-0 h-100"> 
+            <img src="{{ url_for('static', filename='img/logo_1.jpg') }}"
+                 class="card-img-top" alt="hospital">
+            <div class="card-body">
+              <h5 class="card-title">Trusted clinical screening</h5>
+              <p class="card-text text-muted">
+                MediCare Hospitals is one of India’s largest and most reliable corporate healthcare networks, specializing in high-quality, cost-effective <strong>tertiary and quaternary care</strong>. The network operates <strong>over 25 hospitals</strong> across key states including Telangana, Andhra Pradesh, Maharashtra, Kerala, and Karnataka, including the <strong>1,000-bed flagship hospital in Secunderabad</strong>. Our dedication to a patient-first approach is demonstrated by our recent expansion to <strong>Bengaluru (Mahadevapura)</strong> with a state-of-the-art super-specialty facility featuring over 450 beds and advanced critical care services.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Yellow Box End -->
+  </div>
+</div>
+
+{% endblock %}
