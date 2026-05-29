@@ -1,44 +1,177 @@
-# Diabetic Prediction Project
+# 🩺 Diabetes Prediction System
 
-## Overview
-Binary classification to predict diabetes outcome using the Pima Indians Diabetes dataset.
+A Machine Learning + Flask web application that predicts whether a person is diabetic or non-diabetic based on medical input values.
 
-## Folder structure
-(see top of message)
+---
 
-## Setup
-1. Create virtualenv:
+# 🚀 Features
 
+* Diabetes prediction using Machine Learning
+* User-friendly Flask web interface
+* Login & Signup system
+* Responsive Bootstrap UI
+* Displays prediction result instantly
+* Keeps entered values after prediction
+* Clear button resets all fields and results
 
-2. Place the dataset `diabetes.csv` into `data/` OR run:
+---
 
+# 🛠 Technologies Used
 
-(If your environment has no internet, place `diabetes.csv` manually. Sample will be created otherwise.)
+* Python
+* Flask
+* Scikit-learn
+* Pandas
+* NumPy
+* HTML/CSS
+* Bootstrap
+* Joblib
 
-3. Preprocess data:
+---
 
+# 📂 Project Structure
 
-4. Train model:
+```bash
+Diabetic_Prediction/
+│
+├── app.py
+├── train.py
+├── requirements.txt
+├── README.md
+├── report.pdf
+│
+├── dataset/
+│   └── diabetes.csv
+│
+├── model/
+│   ├── diabetes_model.pkl
+│   └── scaler.pkl
+│
+├── static/
+│   ├── style.css
+│   ├── script.js
+│   └── img/
+│
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── predict.html
+│   ├── login.html
+│   └── signup.html
+│
+└── venv/
+```
 
-python src/train_model.py --data_dir data/processed --out_dir models
+---
 
+# ⚙️ Installation Steps
 
-5. Evaluate:
+## 1. Clone Repository
 
+```bash
+git clone https://github.com/Sridhar0908/Diabetic_Prediction.git
+```
 
-python src/evaluate.py --data_dir data/processed --model_dir models --out_dir reports/figures
+## 2. Open Project Folder
 
+```bash
+cd Diabetic_Prediction
+```
 
-6. Single-sample inference:
+## 3. Create Virtual Environment
 
+```bash
+python -m venv venv
+```
 
-python src/inference.py --model_dir models --data_dir data/processed --sample "Pregnancies=2,Glucose=120,..."
+## 4. Activate Virtual Environment
 
+### Windows
 
-## Deliverables
-- code (this repo)
-- report/report.pdf (convert report/project_report.md to PDF)
-- slides/ (paste slides_content.txt into PowerPoint)
+```bash
+.\venv\Scripts\Activate.ps1
+```
 
-Email: admin@gmail.com
-Password: admin
+---
+
+# 📦 Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 📊 Train Machine Learning Model
+
+```bash
+python train.py
+```
+
+This creates:
+
+* `diabetes_model.pkl`
+* `scaler.pkl`
+
+inside the `model/` folder.
+
+---
+
+# ▶️ Run Flask Application
+
+```bash
+python app.py
+```
+
+Open browser:
+
+```bash
+http://127.0.0.1:5000
+```
+
+---
+
+# 🧪 Sample Inputs
+
+| Feature           | Value |
+| ----------------- | ----- |
+| Pregnancies       | 2     |
+| Glucose           | 120   |
+| Blood Pressure    | 70    |
+| Skin Thickness    | 20    |
+| Insulin           | 85    |
+| BMI               | 28.5  |
+| Diabetes Pedigree | 0.5   |
+| Age               | 32    |
+
+---
+
+# 📸 Screenshots
+
+Add screenshots inside:
+
+```bash
+static/img/
+```
+
+Example screenshots:
+
+* Home page
+* Prediction page
+* Login page
+* Prediction result
+
+---
+
+# 👨‍💻 Author
+
+Sridhar
+
+GitHub:
+https://github.com/Sridhar0908
+
+---
+
+# 📄 License
+
+This project is for educational purposes only.
